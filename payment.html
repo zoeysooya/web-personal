@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FourTaste DALA - Payment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(255, 245, 225);
+            color: rgb(50, 50, 50);
+            text-align: center;
+        }
+        header {
+            background-color: rgb(255, 102, 51);
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .input-group {
+            margin: 10px 0;
+            text-align: left;
+        }
+        .input-group label {
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .order-info {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .quantity {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quantity button {
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: rgb(255, 102, 51);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        .quantity button:hover {
+            background-color: rgb(204, 50, 0);
+        }
+        .qr-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .qr-container img {
+            width: 200px;
+            height: 200px;
+        }
+        .btn {
+            background-color: rgb(255, 102, 51);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: rgb(204, 50, 0);
+        }
+        .btn-close {
+            background-color: gray;
+            margin-top: 10px;
+        }
+        .btn-close:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>Payment</header>
+    <div class="container" id="mainContainer">
+        <h2>Order Details</h2>
+        <div class="input-group">
+   	     <label for="namaPemesan">Customer Name:</label>
+             <input type="text" id="namaPemesan" placeholder="Enter Your Name">
+    </div>
+    <div class="input-group">
+	     <label for="emailPemesan">Email Addres:</label>
+    	     <input type="email" id="emailPemesan" placeholder="example@gmail.com">
+    </div>
+
+        <p class="order-info"><strong>Food Name:</strong> <span id="namaMakanan">Pizza Pepperoni</span></p>
+        <p class="order-info"><strong>Quantity:</strong> 
+            <div class="quantity">
+                <button onclick="ubahJumlah(-1)">-</button>
+                <span id="jumlahPesanan">1</span>
+                <button onclick="ubahJumlah(1)">+</button>
+            </div>
+        </p>
+        <p class="order-info"><strong>Total Price:</strong> Rp <span id="totalHarga">50.000</span></p>
+
+        <button class="btn" onclick="tampilkanQR()">Scan QR to Pay</button>
+    </div>
+
+    <div class="container qr-container" id="qrContainer">
+    	<h3>Please scan this QR and show it to the cashier to complete the payment.</h3>
+   	 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=QR_Pembayaran_DapoerLezat" alt="QR Code Pembayaran">
+   	 <button class="btn btn-close" onclick="kembaliKeProduk()">Close</button>
+    </div>
+
+    <script>
+    let params = new URLSearchParams(window.location.search);
+    let namaMenu = params.get("menu") || "Menu Tidak Ditemukan";
+    let hargaSatuan = parseInt(params.get("harga")) || 0;
+    let jumlahPesanan = 1;
+
+    document.getElementById('namaMakanan').innerText = namaMenu;
+    document.getElementById('totalHarga').innerText = hargaSatuan.toLocaleString("id-ID");
+
+    function ubahJumlah(jumlah) {
+        jumlahPesanan += jumlah;
+        if (jumlahPesanan < 1) jumlahPesanan = 1;
+        document.getElementById('jumlahPesanan').innerText = jumlahPesanan;
+        document.getElementById('totalHarga').innerText = (hargaSatuan * jumlahPesanan).toLocaleString("id-ID");
+    }
+
+    function tampilkanQR() {
+        document.getElementById('mainContainer').style.display = "none"; 
+        document.getElementById('qrContainer').style.display = "block";  
+    }
+
+    function kembaliKeProduk() {
+        window.location.href = "products.html"; 
+    }
+</script>
+
+</body>
+</html>
