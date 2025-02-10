@@ -107,13 +107,13 @@
     <div class="container" id="mainContainer">
         <h2>Order Details</h2>
         <div class="input-group">
-   	     <label for="namaPemesan">Customer Name:</label>
-             <input type="text" id="namaPemesan" placeholder="Enter Your Name">
-    </div>
-    <div class="input-group">
-	     <label for="emailPemesan">Email Addres:</label>
-    	     <input type="email" id="emailPemesan" placeholder="example@gmail.com">
-    </div>
+            <label for="namaPemesan">Customer Name:</label>
+            <input type="text" id="namaPemesan" placeholder="Enter Your Name">
+        </div>
+        <div class="input-group">
+            <label for="emailPemesan">Email Address:</label>
+            <input type="email" id="emailPemesan" placeholder="example@gmail.com">
+        </div>
 
         <p class="order-info"><strong>Food Name:</strong> <span id="namaMakanan">Pizza Pepperoni</span></p>
         <p class="order-info"><strong>Quantity:</strong> 
@@ -129,36 +129,43 @@
     </div>
 
     <div class="container qr-container" id="qrContainer">
-    	<h3>Please scan this QR and show it to the cashier to complete the payment.</h3>
-   	 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=QR_Pembayaran_DapoerLezat" alt="QR Code Pembayaran">
-   	 <button class="btn btn-close" onclick="kembaliKeProduk()">Close</button>
+        <h3>Please scan this QR and show it to the cashier to complete the payment.</h3>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=QR_Pembayaran_DapoerLezat" alt="QR Code Pembayaran">
+        <button class="btn btn-close" onclick="kembaliKeProduk()">Close</button>
     </div>
 
     <script>
-    let params = new URLSearchParams(window.location.search);
-    let namaMenu = params.get("menu") || "Menu Tidak Ditemukan";
-    let hargaSatuan = parseInt(params.get("harga")) || 0;
-    let jumlahPesanan = 1;
+        let params = new URLSearchParams(window.location.search);
+        let namaMenu = params.get("menu") || "Menu Tidak Ditemukan";
+        let hargaSatuan = parseInt(params.get("harga")) || 0;
+        let jumlahPesanan = 1;
 
-    document.getElementById('namaMakanan').innerText = namaMenu;
-    document.getElementById('totalHarga').innerText = hargaSatuan.toLocaleString("id-ID");
+        document.getElementById('namaMakanan').innerText = namaMenu;
+        document.getElementById('totalHarga').innerText = hargaSatuan.toLocaleString("id-ID");
 
-    function ubahJumlah(jumlah) {
-        jumlahPesanan += jumlah;
-        if (jumlahPesanan < 1) jumlahPesanan = 1;
-        document.getElementById('jumlahPesanan').innerText = jumlahPesanan;
-        document.getElementById('totalHarga').innerText = (hargaSatuan * jumlahPesanan).toLocaleString("id-ID");
-    }
+        function ubahJumlah(jumlah) {
+            jumlahPesanan += jumlah;
+            if (jumlahPesanan < 1) jumlahPesanan = 1;
+            document.getElementById('jumlahPesanan').innerText = jumlahPesanan;
+            document.getElementById('totalHarga').innerText = (hargaSatuan * jumlahPesanan).toLocaleString("id-ID");
+        }
 
-    function tampilkanQR() {
-        document.getElementById('mainContainer').style.display = "none"; 
-        document.getElementById('qrContainer').style.display = "block";  
-    }
+        function tampilkanQR() {
+            let nama = document.getElementById("namaPemesan").value.trim();
+            let email = document.getElementById("emailPemesan").value.trim();
 
-    function kembaliKeProduk() {
-        window.location.href = "products.html"; 
-    }
-</script>
+            if (nama === "" || email === "") {
+                alert("Please enter your name and email before proceeding.");
+                return;
+            }
 
+            document.getElementById('mainContainer').style.display = "none"; 
+            document.getElementById('qrContainer').style.display = "block";  
+        }
+
+        function kembaliKeProduk() {
+            window.location.href = "index.html";  
+        }
+    </script>
 </body>
 </html>
