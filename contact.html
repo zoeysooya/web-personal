@@ -115,14 +115,48 @@
             color: rgb(204, 82, 0);
             transform: scale(1.2);
         }
+
+        /* Media query untuk HP */
+        @media (max-width: 600px) {
+            header {
+                font-size: 1.5rem;
+                padding: 1rem;
+            }
+            nav a {
+                font-size: 16px;
+                padding: 8px 15px;
+            }
+            .contact-form {
+                max-width: 90vw; /* Lebih kecil di HP */
+                padding: 1.5rem;
+            }
+            .input-group label {
+                font-size: 0.9rem;
+            }
+            .input-group input, .input-group textarea {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            .message {
+                font-size: 1.2rem;
+            }
+            .social-icons a {
+                font-size: 24px; /* Ikon lebih kecil di HP */
+                margin: 0 8px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>Contact Us - Dapoer Lezat</header>
     <nav>
-        <a href="index.html">Home</a>|
-        <a href="products.html">Menu</a>|
-        <a href="resep.html">Recipes</a>|
+        <a href="index.html">Home</a> |
+        <a href="products.html">Menu</a> |
+        <a href="resep.html">Recipes</a> |
         <a href="contact.html">Contact Us</a>
     </nav>
     <div class="container">
