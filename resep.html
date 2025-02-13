@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FourTaste DALA - Menu</title>
+  <title>FourTaste DALA - Recipes</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -16,7 +16,7 @@
     header {
       background-color: rgb(255, 102, 51);
       color: white;
-      padding: 20px;
+      padding: 24px;
       text-align: center;
       font-size: 32px;
       font-weight: bold;
@@ -24,7 +24,7 @@
     }
     nav {
       background-color: rgb(204, 82, 0);
-      padding: 15px;
+      padding: 16px;
       text-align: center;
     }
     nav a {
@@ -42,156 +42,168 @@
       transform: translateY(-2px);
     }
     .container {
+      padding: 32px;
       text-align: center;
-      padding: 40px 20px;
-      max-width: 900px; /* disesuaikan agar lebih mirip dengan Home */
+      max-width: 900px;
       margin: auto;
     }
-    h2 {
-      color: rgb(204, 82, 0);
-      font-size: 28px;
+    .section {
+      margin-bottom: 32px;
     }
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* kolom lebih kecil */
-      gap: 10px;
-      margin-top: 20px;
+    .recipe-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
-    .menu-item {
+    .recipe {
       background: white;
-      padding: 8px;
+      padding: 16px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform 0.3s;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 400px;
     }
-    .menu-item:hover {
-      transform: scale(1.05);
-    }
-    .menu-item img {
+    .recipe img {
       width: 100%;
-      height: 100px; /* tinggi gambar lebih kecil */
+      height: 200px;
       object-fit: cover;
       border-radius: 10px;
     }
-    .menu-item h3 {
-      font-size: 16px;
-      margin: 8px 0;
+    .recipe h4 {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      margin: 16px 0;
+      font-size: 18px;
     }
-    .price {
-      font-size: 14px;
-      color: rgb(204, 82, 0);
-      font-weight: bold;
-      margin: 5px 0;
-    }
-    .stars {
-      color: gold;
-      font-size: 14px;
-    }
-    .buy-btn {
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: rgb(255, 102, 51);
       color: white;
-      border: none;
-      padding: 6px 10px;
-      font-size: 12px;
+      padding: 10px 20px;
+      font-size: 16px;
       font-weight: bold;
+      text-decoration: none;
       border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      display: block;
-      margin: 8px auto 0;
+      transition: background 0.3s;
+      width: 80%;
+      text-align: center;
+      margin: auto;
+      margin-top: auto;
     }
-    .buy-btn:hover {
-      background-color: rgb(204, 50, 0);
+    .btn:hover {
+      background-color: rgb(204, 82, 0);
     }
+    /* Responsive adjustments untuk perangkat mobile */
     @media (max-width: 600px) {
-      .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .recipe {
+        width: 90%; /* Menggunakan lebar hampir penuh */
+        min-height: auto;
+      }
+      .recipe img {
+        height: 150px;
+      }
+      .recipe h4 {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+      .btn {
+        padding: 8px 15px;
+        font-size: 14px;
       }
     }
   </style>
 </head>
 <body>
-    <header>FourTaste DALA Recipes</header>
-    <nav>
-        <a href="index.html">Home</a> |
-        <a href="products.html">Menu</a> |
-        <a href="resep.html">Recipes</a> |
-        <a href="contact.html">Contact Us</a>
-    </nav>
-    <div class="container">
-        <div class="section">
-            <h3>International Food</h3>
-            <div class="recipe-container">
-                <div class="recipe">
-                    <img src="pizzapepperoni.jpeg" alt="Pizza Pepperoni">
-                    <h4>Pepperoni Pizza</h4>
-                    <a href="pizzapepperoni.html" class="btn">View Recipe</a>
-                </div>
-	<div class="recipe">
-                    <img src="spaghetticarbonara.jpeg" alt="Spaghetti Carbonara">
-                    <h4>Spaghetti Carbonara</h4>
-                    <a href="spaghetticarbonara.html" class="btn">View Recipe</a>
-                </div>
-	<div class="recipe">
-                    <img src="burgerbbq.jpeg" alt="Burger BBQ">
-                    <h4>Burger BBQ</h4>
-                    <a href="burgerbbq.html" class="btn">View Recipe</a>
-                </div>
-	<div class="recipe">
-                    <img src="tteokbokki.jpeg" alt="Tteokbokki">
-                    <h4>Tteokbokki</h4>
-                    <a href="tteokbokki.html" class="btn">View Recipe</a>
-                </div>
-                <div class="recipe">
-                    <img src="croissant.jpeg" alt="Croissant">
-                    <h4>Croissant</h4>
-                    <a href="croissant.html" class="btn">View Recipe</a>
-                </div>
-                
-                <div class="recipe">
-                    <img src="burncheesecake.jpeg" alt="burncheesecake">
-                    <h4>Burn Cheesecake</h4>
-                    <a href="burncheesecake.html" class="btn">View Recipe</a>
-                </div>
-            </div>
+  <header>FourTaste DALA Recipes</header>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="products.html">Menu</a> |
+    <a href="resep.html">Recipes</a> |
+    <a href="contact.html">Contact Us</a> |
+    <a href="english.html">English</a> |
+    <a href="pkwu.html">PKWU</a>
+  </nav>
+  <div class="container">
+    <div class="section">
+      <h3>International Food</h3>
+      <div class="recipe-container">
+        <div class="recipe">
+          <img src="pizzapepperoni.jpeg" alt="Pizza Pepperoni">
+          <h4>Pepperoni Pizza</h4>
+          <a href="pizzapepperoni.html" class="btn">View Recipe</a>
         </div>
-
-        <div class="section">
-            <h3>Indonesian Food</h3>
-            <div class="recipe-container">
-                <div class="recipe">
-                    <img src="tempemendoan.jpeg" alt="Tempe Mendoan">
-                    <h4>Tempe Mendoan</h4>
-                    <a href="tempemendoan.html" class="btn">View Recipe</a>
-                </div>
-                <div class="recipe">
-                    <img src="rendang.jpeg" alt="Rendang">
-                    <h4>Rendang</h4>
-                    <a href="rendang.html" class="btn">View Recipe</a>
-                </div>
-	<div class="recipe">
-                    <img src="nasigoreng.jpeg" alt="Nasi Goreng">
-                    <h4>Fried Rice</h4>
-                    <a href="nasigoreng.html" class="btn">View Recipe</a>
-                </div>
-                <div class="recipe">
-                    <img src="sateayam.jpeg" alt="Sate Ayam">
-                    <h4>Sate Ayam</h4>
-                    <a href="sateayam.html" class="btn">View Recipe</a>
-                </div>
-	<div class="recipe">
-                    <img src="klepon.jpeg" alt="Klepon">
-                    <h4>Klepon</h4>
-                    <a href="klepon.html" class="btn">View Recipe</a>
-                </div>
-                <div class="recipe">
-                    <img src="escendol.jpeg" alt="Es Cendol">
-                    <h4>Es Cendol</h4>
-                    <a href="escendol.html" class="btn">View Recipe</a>
-                </div>
-            </div>
+        <div class="recipe">
+          <img src="spaghetticarbonara.jpeg" alt="Spaghetti Carbonara">
+          <h4>Spaghetti Carbonara</h4>
+          <a href="spaghetticarbonara.html" class="btn">View Recipe</a>
         </div>
+        <div class="recipe">
+          <img src="burgerbbq.jpeg" alt="Burger BBQ">
+          <h4>Burger BBQ</h4>
+          <a href="burgerbbq.html" class="btn">View Recipe</a>
+        </div>
+        <div class="recipe">
+          <img src="tteokbokki.jpeg" alt="Tteokbokki">
+          <h4>Tteokbokki</h4>
+          <a href="tteokbokki.html" class="btn">View Recipe</a>
+        </div>
+        <div class="recipe">
+          <img src="croissant.jpeg" alt="Croissant">
+          <h4>Croissant</h4>
+          <a href="croissant.html" class="btn">View Recipe</a>
+        </div>
+        <div class="recipe">
+          <img src="burncheesecake.jpeg" alt="Burn Cheesecake">
+          <h4>Burn Cheesecake</h4>
+          <a href="burncheesecake.html" class="btn">View Recipe</a>
+        </div>
+      </div>
     </div>
+    <div class="section">
+      <h3>Indonesian Food</h3>
+      <div class="recipe-container">
+        <div class="recipe">
+          <img src="tempemendoan.jpeg" alt="Tempe Mendoan">
+          <h4>Tempe Mendoan</h4>
+          <a href="tempemendoan.html" class="btn">View Recipe</a>
+        </div>
+        <div class="recipe">
+          <img src="rendang.jpeg" alt="Rendang">
+          <h4>Rendang</h4>
+          <a href="rendang.html" class="btn">View Recipe</a>
+        </div>
+        <div class="recipe">
+          <img src="nasigoreng.jpeg" alt="Nasi Goreng">
+          <h4>Fried Rice</h4>
+          <a href="nasigoreng.html" class="btn">View Recipe</a>
+        </div>
+        <div class="recipe">
+          <img src="sateayam.jpeg" alt="Sate Ayam">
+          <h4>Sate Ayam</h4>
+          <a href="sateayam.html" class="btn">View Recipe</a>
+        </div>
+        <div class="recipe">
+          <img src="klepon.jpeg" alt="Klepon">
+          <h4>Klepon</h4>
+          <a href="klepon.html" class="btn">View Recipe</a>
+        </div>
+        <div class="recipe">
+          <img src="escendol.jpeg" alt="Es Cendol">
+          <h4>Es Cendol</h4>
+          <a href="escendol.html" class="btn">View Recipe</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
